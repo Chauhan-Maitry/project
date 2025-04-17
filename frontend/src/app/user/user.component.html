@@ -1,0 +1,86 @@
+<div class="container">
+  <h2>{{ editMode ? 'Edit User' : 'Add User' }}</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Name -->
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control" />
+          <div class="text-danger" *ngIf="f['name'].touched && f['name'].invalid">
+            <small *ngIf="f['name'].errors?.['required']"><b>Name is required</b></small>
+            <small *ngIf="f['name'].errors?.['minlength']">Name must be at least 3 characters</small>
+          </div>
+        </div>
+      
+      <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" class="form-control" />
+          <div class="text-danger" *ngIf="f['email'].touched && f['email'].invalid">
+            <small *ngIf="f['email'].errors?.['required']"><b>Email is required</b></small>
+            <small *ngIf="f['email'].errors?.['email']"><b>Enter a valid email</b></small>
+          </div>
+        </div>
+      
+      <!-- Mobile -->
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input type="text" id="mobile" formControlName="mobile" class="form-control" />
+          <div class="text-danger" *ngIf="f['mobile'].touched && f['mobile'].invalid">
+            <small *ngIf="f['mobile'].errors?.['required']"><b>Mobile number is required</b></small>
+            <small *ngIf="f['mobile'].errors?.['pattern']"><b>Enter a valid 10-digit mobile number</b></small>
+          </div>
+        </div>
+      
+      <!-- Age -->
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" formControlName="age" class="form-control" />
+          <div class="text-danger" *ngIf="f['age'].touched && f['age'].invalid">
+            <small *ngIf="f['age'].errors?.['required']"><b>Age is required</b></small>
+            <small *ngIf="f['age'].errors?.['min']"><b>Age must be at least 1</b></small>
+            <small *ngIf="f['age'].errors?.['max']"><b>Age must be less than or equal to 100</b></small>
+          </div>
+        </div>
+      
+      <!-- Submit & Reset Buttons -->
+        <div class="form-group mt-3">
+          <button type="submit" class="btn add-btn" [disabled]="userForm.invalid">
+            {{ editMode ? 'Update' : 'Add' }}
+          </button>
+          <button type="button" class="btn reset-btn ms-2" (click)="resetForm()">Reset</button>
+        </div>
+    </form>
+      
+    <hr />
+      
+      <!-- User List -->
+        <h3>User List</h3>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Age</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.mobile }}</td>
+              <td>{{ user.age }}</td>
+              <td>
+                <button class="btn btn-sm btn-warning me-2" (click)="onEdit(user)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="onDelete(user.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+</div>
+      
+      

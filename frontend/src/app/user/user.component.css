@@ -1,0 +1,33 @@
+   .container {
+    background-color: rgb(9, 146, 100);
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    color:black;
+    
+  }
+  
+  .add-btn {
+    background-color: #2a0cc1; /* Blue */
+    color:white;
+  }
+
+  .reset-btn {
+    background-color: darkgray; /* Grey */
+    color: black;
+  }
+
+  .text-danger {
+    font-size: 0.99em;
+    font-style: italic;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
