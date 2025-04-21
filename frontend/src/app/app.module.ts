@@ -14,6 +14,7 @@ import { UserComponent } from './user/user.component';
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
+ 
 })
 export class AppModule {}
 

@@ -59,6 +59,7 @@
         <table class="table table-bordered">
           <thead>
             <tr>
+              <th>id</th>
               <th>Name</th>
               <th>Email</th>
               <th>Mobile</th>
@@ -67,12 +68,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users">
+            <tr *ngFor="let user of users ; let i = index">
               
-              <td>{{ user.name }}</td>
+              <!-- <td>{{ user.name }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.mobile }}</td>
-              <td>{{ user.age }}</td>
+              <td>{{ user.age }}</td> -->
+              <!-- <tr *ngFor="let user of users; let i = index"> -->
+                <td>{{ i + 1 }}</td> <!-- Index 0 se start hota hai, isiliye +1 -->
+                <!-- <td>{{ user.id }}</td> -->
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.mobile }}</td>
+                <td>{{ user.age }}</td>
+              
+              
               <td>
                 <button class="btn btn-sm btn-warning me-2" (click)="onEdit(user)">Edit</button>
                 <button class="btn btn-sm btn-danger" (click)="onDelete(user.id)">Delete</button>

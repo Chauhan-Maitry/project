@@ -13,12 +13,12 @@
   }
   
   .add-btn {
-    background-color: #2a0cc1; /* Blue */
+    background-color: #2a0cc1; 
     color:white;
   }
 
   .reset-btn {
-    background-color: darkgray; /* Grey */
+    background-color: darkgray; 
     color: black;
   }
 
